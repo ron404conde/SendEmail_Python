@@ -1,5 +1,6 @@
 import smtplib
 
+email_address = input("Type your email address: ")
 password = input("Type your account password: ")
 
 def send_mail():
@@ -8,8 +9,7 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
-    # server.login('kennethnull404@gmail.com', 'Asmerkosen123')
-    server.login('kennethnull404@gmail.com', password)
+    server.login(email_address, password)
 
     subject = 'Test sent email with Python'
     body = 'Hey, this is just a test mail'
@@ -17,8 +17,8 @@ def send_mail():
     msg = f"Subject: {subject}\n\n{body}"
 
     server.sendmail(
-        'kennethnull404@gmail.com',
-        'rsolleza7@gmail.com',
+        'kennethnull404@gmail.com', # sender
+        'rsolleza7@gmail.com', # reciever
         msg
     )
 
